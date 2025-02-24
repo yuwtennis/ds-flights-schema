@@ -1,0 +1,1 @@
+GRANT `roles/bigquery.dataOwner` ON SCHEMA `elite-caster-125113`.dsongcp TO "serviceAccount:svc-monthly-ingest@elite-caster-125113.iam.gserviceaccount.com"
