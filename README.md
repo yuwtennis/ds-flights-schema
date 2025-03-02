@@ -15,7 +15,9 @@ Run DDL statements on bigquery
 First setup flyway environment accordingly. Flyway required jdbc lib specific to biguqery (see [doc](https://documentation.red-gate.com/fd/google-bigquery-277579314.html)).
 I used the [Command-line style of opensource version](https://documentation.red-gate.com/flyway/getting-started-with-flyway/quickstart-guides/quickstart-command-line).
 
+To migrate bigquery
 ```shell
-flyway migration
+export JARDIR=drivers/bq
+./flyway -environment=bigquery -jarDirs=$JARDIR migrate
 ```
 
