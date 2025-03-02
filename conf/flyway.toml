@@ -1,16 +1,18 @@
 # More information on the parameters can be found here: https://documentation.red-gate.com/flyway/reference/configuration
 
 [environments.bigquery]
-url = "jdbc:bigquery://https://www.googleapis.com/bigquery/v2:443;OAuthType=3;ProjectId=elite-caster-125113;"
+url = "jdbc:bigquery://https://www.googleapis.com/bigquery/v2:443;OAuthType=3;ProjectId=dsongcp-452504;"
 user = ""
 password = ""
 locations = ["filesystem:./sql/bigquery"]
 validateMigrationNaming = true
-cleanDisabled = false
 schemas = ["dsongcp"]
 
 [environments.postgresql]
-url = "jdbc:bigquery://https://www.googleapis.com/bigquery/v2:443;OAuthType=3;ProjectId=elite-caster-125113;"
+url = "jdbc:bigquery://https://www.googleapis.com/bigquery/v2:443;OAuthType=3;ProjectId=dsongcp-452504;"
 user = ""
 password = ""
 locations = ["filesystem:./sql/postgresql"]
+
+[flyway]
+cleanDisabled = false
