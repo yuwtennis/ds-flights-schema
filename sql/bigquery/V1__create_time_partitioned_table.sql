@@ -1,4 +1,5 @@
-CREATE TABLE dsongcp.flights_raw (
+-- FIXME Use semantic versioning for file name , V1.0.0
+CREATE TABLE IF NOT EXISTS dsongcp.flights_raw (
     Year STRING,
     Quarter STRING,
     Month STRING,
@@ -107,7 +108,7 @@ CREATE TABLE dsongcp.flights_raw (
     Div5TotalGTime STRING,
     Div5LongestGTime STRING,
     Div5WheelsOff STRING,
-    Div5TailNum STRING
+    Div5TailNum STRING,
 )
 PARTITION BY
     DATE_TRUNC(FlightDate, MONTH);
