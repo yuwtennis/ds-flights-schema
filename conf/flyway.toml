@@ -4,14 +4,18 @@
 url = "jdbc:bigquery://https://www.googleapis.com/bigquery/v2:443;OAuthType=3;ProjectId=dsongcp-452504;"
 user = ""
 password = ""
-locations = ["filesystem:./sql/bigquery"]
 validateMigrationNaming = true
 schemas = ["dsongcp"]
 
+[environments.bigquery.flyway]
+locations = ["filesystem:./sql/bigquery"]
+
 [environments.postgresql]
-url = "jdbc:bigquery://https://www.googleapis.com/bigquery/v2:443;OAuthType=3;ProjectId=dsongcp-452504;"
-user = ""
-password = ""
+url = "jdbc:postgresql://localhost:5432/bts"
+user = "postgres"
+password = "postgres"
+
+[environments.postgresql.flyway]
 locations = ["filesystem:./sql/postgresql"]
 
 [flyway]
