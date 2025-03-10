@@ -1,4 +1,3 @@
--- FIXME Use semantic versioning for file name , V1.0.0
 CREATE TABLE IF NOT EXISTS dsongcp.flights_raw (
     Year STRING,
     Quarter STRING,

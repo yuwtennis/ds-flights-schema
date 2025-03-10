@@ -1,2 +1,1 @@
--- FIXME Use semantic versioning for file name , V1.1.0
 GRANT `roles/bigquery.dataOwner` ON SCHEMA `dsongcp-452504`.dsongcp TO "serviceAccount:svc-monthly-ingest@dsongcp-452504.iam.gserviceaccount.com"
