@@ -33,6 +33,8 @@ export GOOGLE_PROJECT_ID=YOUR_PROJECT_ID
 export GOOGLE_APPLICATION_CRED_DIR=.config
 docker run \
   -v ~/${GOOGLE_APPLICATION_CRED_DIR}/:/root/${GOOGLE_APPLICATION_CRED_DIR}/ \
+  -v $(pwd)/conf:/app/conf \
+  -v $(pwd)/sql:/app/sql \
   --rm \
   -e GOOGLE_PROJECT_ID \
   flyway:latest \
@@ -63,6 +65,8 @@ Run migration.
 export PG_USER=YOUR_USER
 export PG_PASSWORD=YOUR_PASSWORD
 docker run \
+  -v $(pwd)/conf:/app/conf \
+  -v $(pwd)/sql:/app/sql \
   --rm \
   -e PG_USER \
   -e PG_PASSWORD \
