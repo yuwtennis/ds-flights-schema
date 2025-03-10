@@ -17,9 +17,6 @@ RUN tar xzv --strip-components=1 -f /tmp/flyway-commandline-${FLYWAY_CMD_LINE_VE
 RUN mkdir -p ${BUILD_DIR}/jars/bq  \
     && unzip /tmp/SimbaJDBCDriverforGoogleBigQuery42_${BQ_JDBC_DRIVER_VER}.zip -d ${BUILD_DIR}/jars/bq
 
-ADD conf/ conf/
-ADD sql/ sql/
-
 FROM amazoncorretto:11-al2023
 # BQ JDBC DRIVER requires java 8 or 11
 
