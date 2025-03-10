@@ -8,7 +8,14 @@ _Tested version_ in the table represents the version which I have used for testi
 | Tool name         | Tested version                                                |
 |-------------------|---------------------------------------------------------------|
 | java              | 1.8.0_432                                                     |
-| flyway opensource | [11.3.1](https://github.com/flyway/flyway/tree/flyway-11.3.1) |
+| flyway opensource | [11.3.4](https://github.com/flyway/flyway/tree/flyway-11.3.4) |
+| docker engine     | 1:27.3.1-1                                                    |
+
+## Build
+
+```shell
+docker build -t flyway:latest .
+```
 
 ## Migrate
 
@@ -19,10 +26,18 @@ I used the [Command-line style of opensource version](https://documentation.red-
 
 Run migration.
 
+Note: I relied on [google application credential](https://cloud.google.com/docs/authentication/application-default-credentials) for this purpose.
+
 ```shell
-./flyway \
-  -environment=bigquery\
-  -jarDirs=drivers/bq \
+export GOOGLE_PROJECT_ID=YOUR_PROJECT_ID
+export GOOGLE_APPLICATION_CRED_DIR=.config
+docker run \
+  -v ~/${GOOGLE_APPLICATION_CRED_DIR}/:/root/${GOOGLE_APPLICATION_CRED_DIR}/ \
+  --rm \
+  -e GOOGLE_PROJECT_ID \
+  flyway:latest \
+  -environment=bigquery \
+  -jarDirs=jars/bq \
   migrate
 ```
 
@@ -45,8 +60,14 @@ gcloud compute ssh cloud-sql-auth-proxy \
 
 Run migration.
 ```shell
-./flyway \
-  -environment=postgresql\
-  -jarDirs=drivers\
+export PG_USER=YOUR_USER
+export PG_PASSWORD=YOUR_PASSWORD
+docker run \
+  --rm \
+  -e PG_USER \
+  -e PG_PASSWORD \
+  flyway:latest \
+  -environment=postgresql \
+  -jarDirs=drivers \
   migrate
 ```
