@@ -1,7 +1,7 @@
 # More information on the parameters can be found here: https://documentation.red-gate.com/flyway/reference/configuration
 
 [environments.bigquery]
-url = "jdbc:bigquery://https://www.googleapis.com/bigquery/v2:443;OAuthType=3;ProjectId=${env.GOOGLE_PROJECT_ID};"
+url = "jdbc:bigquery://https://www.googleapis.com/bigquery/v2:443;OAuthType=3;ProjectId=${env.GOOGLE_PROJECT_ID};Location=${env.GOOGLE_BQ_DATASET_LOCATION}"
 user = ""
 password = ""
 validateMigrationNaming = true
