@@ -1,7 +1,7 @@
 # More information on the parameters can be found here: https://documentation.red-gate.com/flyway/reference/configuration
 
 [environments.bigquery]
-url = "jdbc:bigquery://https://www.googleapis.com/bigquery/v2:443;OAuthType=3;ProjectId=${GOOGLE_PROJECT_ID};"
+url = "jdbc:bigquery://https://www.googleapis.com/bigquery/v2:443;OAuthType=3;ProjectId=${env.GOOGLE_PROJECT_ID};"
 user = ""
 password = ""
 validateMigrationNaming = true
@@ -12,8 +12,8 @@ locations = ["filesystem:./sql/bigquery"]
 
 [environments.postgresql]
 url = "jdbc:postgresql://localhost:5432/bts"
-user = "${PG_USER}"
-password = "${PG_PASSWORD}"
+user = "${env.PG_USER}"
+password = "${env.PG_PASSWORD}"
 
 [environments.postgresql.flyway]
 locations = ["filesystem:./sql/postgresql"]
