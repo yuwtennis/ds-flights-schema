@@ -31,12 +31,14 @@ Note: I relied on [google application credential](https://cloud.google.com/docs/
 ```shell
 export GOOGLE_PROJECT_ID=YOUR_PROJECT_ID
 export GOOGLE_APPLICATION_CRED_DIR=.config
+export GOOGLE_BQ_DATASET_LOCATION=asia-northeast1
 docker run \
   -v ~/${GOOGLE_APPLICATION_CRED_DIR}/:/root/${GOOGLE_APPLICATION_CRED_DIR}/ \
   -v $(pwd)/conf:/app/conf \
   -v $(pwd)/sql:/app/sql \
   --rm \
   -e GOOGLE_PROJECT_ID \
+  -e GOOGLE_BQ_DATASET_LOCATION \
   flyway:latest \
   -environment=bigquery \
   -jarDirs=jars/bq \
@@ -57,7 +59,9 @@ Set up ssh tunnel to auth proxy.
 
 ```shell
 gcloud compute ssh cloud-sql-auth-proxy \
-  --tunnel-through-iap --zone=asia-northeast1-a --ssh-flag="-L 5432:localhost:5432"
+  --tunnel-through-iap \
+  --zone=asia-northeast1-a \
+  --ssh-flag="-L 5432:localhost:5432"
 ```
 
 Run migration.
