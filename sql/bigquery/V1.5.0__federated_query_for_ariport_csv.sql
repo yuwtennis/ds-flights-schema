@@ -1,5 +1,3 @@
-DROP EXTERNAL TABLE IF EXISTS`dsongcp.airports_gcs`;
-
 CREATE EXTERNAL TABLE `dsongcp.airports_gcs`(
     AIRPORT_SEQ_ID INTEGER,
     AIRPORT_ID STRING,
@@ -36,7 +34,7 @@ CREATE EXTERNAL TABLE `dsongcp.airports_gcs`(
 ) OPTIONS (
        format = 'CSV',
        quote = '"',
-       uris = ['gs://dsongcp-452504-cf-staging/bts/airport.csv'],
+       uris = ['gs://data-science-on-gcp/edition2/raw/airports.csv'],
        skip_leading_rows = 1,
        allow_jagged_rows = false,
        allow_quoted_newlines = false,
