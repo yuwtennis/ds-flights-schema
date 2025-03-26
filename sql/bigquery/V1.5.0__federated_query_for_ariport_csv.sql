@@ -1,3 +1,5 @@
+DROP EXTERNAL  TABLE IF EXISTS dsongcp.airports_gcs;
+
 CREATE EXTERNAL TABLE `dsongcp.airports_gcs`(
     AIRPORT_SEQ_ID INTEGER,
     AIRPORT_ID STRING,
