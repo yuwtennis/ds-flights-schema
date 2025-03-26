@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
-FROM debian:12-slim AS build
+FROM debian:bookworm-slim AS build
 
 ENV BQ_JDBC_DRIVER_VER=1.6.2.1003
-ENV FLYWAY_CMD_LINE_VER=11.3.4
+ENV FLYWAY_CMD_LINE_VER=11.4.1
 ENV BUILD_DIR=/build
 
 RUN apt update && apt install -y -q unzip
