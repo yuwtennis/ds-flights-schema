@@ -8,7 +8,7 @@ _Tested version_ in the table represents the version which I have used for testi
 | Tool name         | Tested version                                                |
 |-------------------|---------------------------------------------------------------|
 | java              | 1.8.0_432                                                     |
-| flyway opensource | [11.3.4](https://github.com/flyway/flyway/tree/flyway-11.3.4) |
+| flyway opensource | [11.7.2](https://github.com/flyway/flyway/tree/flyway-11.3.4) |
 | docker engine     | 1:27.3.1-1                                                    |
 
 ## Build
@@ -29,7 +29,7 @@ Run migration.
 Note: I relied on [google application credential](https://cloud.google.com/docs/authentication/application-default-credentials) for this purpose.
 
 ```shell
-export GOOGLE_PROJECT_ID=YOUR_PROJECT_ID
+export GOOGLE_PROJECT_ID=$(gcloud config get core/project)
 export GOOGLE_APPLICATION_CRED_DIR=.config
 export GOOGLE_BQ_DATASET_LOCATION=asia-northeast1
 docker run \
