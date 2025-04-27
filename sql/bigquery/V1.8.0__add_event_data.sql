@@ -1,0 +1,1 @@
+ALTER TABLE dsongcp.flights_simevents ADD COLUMN event_data STRING ;
