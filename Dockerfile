@@ -2,7 +2,7 @@
 FROM debian:bookworm-slim AS build
 
 ENV BQ_JDBC_DRIVER_VER=1.6.3.1004
-ENV FLYWAY_CMD_LINE_VER=11.8.1
+ENV FLYWAY_CMD_LINE_VER=11.8.2
 ENV BUILD_DIR=/build
 
 RUN apt update && apt install -y -q unzip
