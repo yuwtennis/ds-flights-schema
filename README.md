@@ -5,11 +5,11 @@
 Below tool will be required when running on local pc.  
 _Tested version_ in the table represents the version which I have used for testing.
 
-| Tool name         | Tested version                                                |
-|-------------------|---------------------------------------------------------------|
-| java              | 1.8.0_432                                                     |
-| flyway opensource | [11.7.2](https://github.com/flyway/flyway/tree/flyway-11.3.4) |
-| docker engine     | 1:27.3.1-1                                                    |
+| Tool name         | Tested version                                               |
+|-------------------|--------------------------------------------------------------|
+| java              | 11                                                           |
+| flyway opensource | [11.7.2](https://github.com/flyway/flyway/tree/flyway-11.8.1) |
+| docker engine     | 1:27.3.1-1                                                   |
 
 ## Build
 
@@ -30,19 +30,8 @@ Note: I relied on [google application credential](https://cloud.google.com/docs/
 
 ```shell
 export GOOGLE_PROJECT_ID=$(gcloud config get core/project)
-export GOOGLE_APPLICATION_CRED_DIR=.config
 export GOOGLE_BQ_DATASET_LOCATION=asia-northeast1
-docker run \
-  -v ~/${GOOGLE_APPLICATION_CRED_DIR}/:/root/${GOOGLE_APPLICATION_CRED_DIR}/ \
-  -v $(pwd)/conf:/app/conf \
-  -v $(pwd)/sql:/app/sql \
-  --rm \
-  -e GOOGLE_PROJECT_ID \
-  -e GOOGLE_BQ_DATASET_LOCATION \
-  flyway:latest \
-  -environment=bigquery \
-  -jarDirs=jars/bq \
-  migrate
+make migrate
 ```
 
 ### To migrate Cloud sql
