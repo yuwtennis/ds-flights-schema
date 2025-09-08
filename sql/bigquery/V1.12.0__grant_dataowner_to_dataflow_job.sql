@@ -1,0 +1,1 @@
+GRANT `roles/bigquery.dataOwner` ON SCHEMA `dsongcp-452504`.dsongcp TO "serviceAccount:svc-vertex-ai-wkbench@dsongcp-452504.iam.gserviceaccount.com"
